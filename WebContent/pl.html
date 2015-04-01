@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+        <script type="text/javascript">
+        var dataReturn='';
+
+        function makeRequest(url){
+            $('#preloader').show();
+            $.get(url, function(data) {
+                $('#resultDiv').html(data);
+                $('#preloader').hide();
+            }).fail(function() {
+                alert( 'Error occured during requesting the page' );
+                $('#preloader').hide();
+            });
+        }
+
+        function makePostRequest(url, params){
+            $('#preloader').show();
+            $.post(url,params, function(data){
+                $('#resultDiv').html(data);
+                $('#preloader').hide();
+            }).fail(function() {
+                alert( 'Error occured during requesting the page' );
+                $('#preloader').hide();
+            });
+        }
+
+        </script>
+        <style>
+            #preloader{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="preloader"><img src="http://preloaders.net/images/ajax-loader.gif" alt="AJAX loader" 
+        	title="AJAX loader" /></div>
+        <input type="button" onclick="makeRequest('preload.html')" 
+        	value="Send GET request" />
+        
+        <input type="button" onclick="makePostRequest('preload.html', 'post_param1=post_value1&post_param2=value2')" 
+        	value="Send POST request" />
+        <div id="resultDiv"></div>
+    </body>
+</html>

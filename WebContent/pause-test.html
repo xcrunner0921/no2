@@ -1,0 +1,166 @@
+<html>
+<head>
+
+	<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="js/jquery-pause.js"></script>
+	
+	<style type="text/css">
+	
+	html, body {
+		background: #eaf2f5;
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		/font-size: 105%;
+	}
+	code {
+		/font-size: 85%;
+		/font-family: 'Lucida Console';
+	}
+	div.body {
+		background: white;
+		margin: 1em 10%;
+		padding: 0 1em;
+		border: 1px solid #bedce7;
+	}
+	a:link, a:visited {§
+		color: #4183ca;
+	}
+	h1 {
+		margin: .5em 0;
+	}
+	h2, p, ul, ol, li, pre, hr {
+		margin-top: .8em;
+		margin-bottom: .8em;
+	}
+	hr {
+		/margin: 0;
+	}
+	em {
+		color: #555;
+	}
+	p.menu {
+		font-family: sans-serif;
+		font-size: 90%;
+	}
+	p.footer {
+		font-size: 90%;
+	}
+	div.demo {
+		border: 1px solid #555;
+		margin: 1em auto;
+		width: 550px;
+	}
+	#box1, #box2, #box3 {
+		width: 100px;
+		height: 100px;
+		position: relative;
+	}
+	#box1 {
+		background: #0C0;
+	}
+	#box2 {
+		background: #090;
+	}
+	#box3 {
+		background: #060;
+	}
+	hr {
+		border: none;
+		color: #bedce7;
+		background-color: #bedce7;
+		height: 1px;
+	}
+	p {
+		text-align: justify;
+	}
+	</style>
+
+	
+	<script type="text/javascript">
+// 	var isPause = false;
+	var box = [];
+	
+	
+	
+	$(function() {
+		$("div[id^='box']").each(function(){
+			box.push($(this));
+		});
+		
+		console.log(box.length);
+
+		$("#pause").bind("click", function() {
+			//console.log("click");
+
+            $(this).toggleClass("disabled");
+	        if ($(this).hasClass("disabled")) {
+	        	//console.log($box.length);
+	            //scrollContoller.autoScrollStop();
+	        	$.each(box, function(index, obj){
+	        		console.log("pause");
+	        		$(obj).pause();
+	        	});
+	
+	        } else {
+	        	//console.log("2");
+	        	//scrollContoller.autoScrollStart();
+	        	$.each(box, function(index, obj){
+	        		console.log("resume");
+	        		$(obj).resume();
+	        	});
+	        }
+            
+        });
+
+		function setupBox(i) {
+// 			$("#pause").trigger('click');
+
+			//$box.push($('#box' + i));
+			function phase1() {
+				
+				$('#box' + i).animate({ left: 450 }, 2000, 'swing', phase2);
+				$('#box' + i).pause();
+				
+			}
+			function phase2() {
+				$('#box' + i).animate({ left: 0 }, 2000, 'swing', phase1);
+			}
+			
+
+// // 			$box.hover(function() {
+// 			$(".demo").hover(function() {
+// 				$box.pause();
+// 			}, function() {
+// 				$box.resume();
+// 			});
+// 			$("#pause").click(function() {
+// // 				curObj.pause();
+
+// 				if (!isPause) $box.pause();
+// 				if (isPause) $box.resume();
+// // 				isPause = !isPause;
+// // 				console.log(isPause);
+// 				if (isPause) isPause = false;
+// 				if (!isPause) isPause = true;
+// 			});
+// 			$("#autoplay").trigger("click");
+			phase1();
+		}
+		setupBox(1);
+		setupBox(2);
+		setupBox(3);
+	});
+	</script>
+</head>
+<body>
+<div class="demo">
+	<div id="pause" class="disabled">pause</div>
+	
+	<div id=box1></div>
+   <div id=box2></div>
+   <div id=box3></div>
+  </div>
+</body>
+</html>

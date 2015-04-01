@@ -1,0 +1,483 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,nav,section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	vertical-align:baseline
+}
+html {
+	height:100%
+}
+body {
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	color:#fff
+}
+.hover:hover {
+	cursor:pointer
+}
+
+#autoplay {
+	position:absolute;
+	top:-23px;
+	right:140px;
+	width:20px;
+	z-index:999;
+	height:20px;
+	background-image:url("../images/autoplay.png")
+}
+
+#autoplay.disabled {
+	background-position:0px -20px
+}
+#sound.disabled {
+	background-position:0px -20px
+}
+#separation {
+	position:absolute;
+	top:-23px;
+	right:128px;
+	margin-left:513px;
+	width:8px;
+	height:20px;
+	z-index:999;
+	background-image:url("../images/separation.png")
+}
+#sound {
+	position:absolute;
+	top:-23px;
+	right:104px;
+	width:20px;
+	z-index:999;
+	height:20px;
+	background-image:url("../images/sound.png")
+}
+
+#progress {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:0%;
+	height:100%;
+	background-color:#fff
+}
+#processing {
+	position:absolute;
+	bottom:50px;
+	left:50%;
+	width:77px;
+	height:17px;
+	margin-left:-38px;
+	background-image:url("../images/loader.png");
+}
+
+#scrollBar {
+	position:absolute;
+	z-index:1000;
+	top:0px;
+	height:100%;
+	right:0px;
+	width:7px;
+	background-color:#333;
+	z-index:999;
+}
+#scene {
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	color:#000;
+}
+#container {
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	color:#000;
+}
+/*--------------------------- s3-s1 진평 러닝 다*/
+#s3-s1 {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	visibility:hidden;
+}
+
+#s3-s1-bg {
+/* 	width:100%; */
+/* 	height:100%; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:-720px;
+	left:0px;
+/* 	z-index:49; */
+	visibility:hidden;
+}
+#s3-s1-jp-top {
+/* 	width:100%; */
+/* 	height:100%; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:50; */
+	visibility:hidden;
+}
+#s3-s1-jp-shadow {
+/* 	width:100%; */
+/* 	height:100%; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:50; */
+	visibility:hidden;
+}
+/*--------------------------- s3-s2 진평 러닝 대각선 슬롯 */
+#s3-s2 {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:-1280px;
+	top:-720px;
+}
+#s3-s2-slot {
+/* 	width:100%; */
+/* 	height:100%; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:51
+}
+#s3-s2-bg {
+/* 	height:720px; */
+/* 	width:1280px; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:-312px;
+	z-index:49
+}
+#s3-s2-drop {
+/* 	height:720px; */
+/* 	width:1280px; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:51
+}
+#s3-s2-jp-run {
+/* 	height:720px; */
+/* 	width:802px; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:50
+}
+/*--------------------------- s3-s3-s1 지평 수평 러닝 */
+#s3-s3-s1 {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:1280px;
+	top:720px;
+	z-index:61;
+}
+#s3-s3-s1-slot1 {
+/* 	width:100%; */
+/* 	height:100%; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:51
+}
+#s3-s3-s1-bg1 {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:49;
+}
+#s3-s3-s1-jp1 {
+/* 	height:720px; */
+/* 	width:1280px; */
+	position:absolute;
+	top:-100px;
+	left:-180px;
+	z-index:50;
+}
+#s3-s3-s2 {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:62;
+	visibility:hidden;
+}
+#s3-s3-s2-slot2 {
+/* 	width:100%; */
+/* 	height:100%; */
+	max-width:100%;
+	max-height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:54;
+}
+#s3-s3-s2-bg2 {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:600px;
+	z-index:52;
+}
+#s3-s3-s2-jp2 {
+/* 	height:720px; */
+/* 	width:1280px; */
+	position:absolute;
+	top:-100px;
+	left:180px;
+	z-index:53;
+}
+#s3-s3-s2-jp3 {
+	position:absolute;
+	top:-100px;
+	left:180px;
+	z-index:53;
+}
+/*--------------------------- s3-s4 진평 비상구 */
+#s3-s4 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	left:0px;
+	top:720px;
+	visibility: hidden;
+}
+#s3-s4-ex-wide {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:340; */
+}
+#s3-s4-ex-zoom {
+/* 	width:100%; */
+/* 	height:100%; */
+	visibility: hidden;
+	position:absolute;
+	top:-720px;
+	left:0px;
+/* 	z-index:348; */
+}
+#s3-s4-sand {
+/* 	width:100%; */
+/* 	height:100%; */
+/* 	visibility: hidden; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:347; */
+	opacity:0;
+}
+#s3-s4-er1 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:346; */
+	opacity:0;
+}
+#s3-s4-er2 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:345; */
+	opacity:0;
+}
+#s3-s4-er3 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:344; */
+	opacity:0;
+}
+#s3-s4-er4 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	z-index:343; */
+	opacity:0;
+}
+#s3-s4-jp {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+	z-index:342;
+}
+/*--------------------------- 진평 뱅뱅 */
+#s3-s5 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	left:0px;
+	top:720px;
+	visibility: hidden;
+}
+#s3-s5-b0 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	visibility: hidden;
+/* 	z-index:340; */
+}
+#s3-s5-b1 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	visibility: hidden; */
+/* 	z-index:340; */
+}
+#s3-s5-b2 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b3 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b4 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b5 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b6 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b7 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b8 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b9 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b10 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b10-g0 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b10-g1 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+#s3-s5-b10-g2 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:.0;
+/* 	z-index:340; */
+}
+/*---------------------------*/
+/*---------------------------*/
+/*---------------------------*/
