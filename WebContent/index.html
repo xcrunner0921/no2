@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 
 <html lang="kr">
 <head>
@@ -29,7 +29,7 @@
 <body>
 	<div id="autoplay" class="hover disabled optimize"></div>
  	<div id="separation" class="optimize"></div>
- 	<div id="sound" class="hover optimize"></div>
+ 	<div id="sound" class="hover disabled optimize"></div>
  	
  	<div id="intro" class="optimize">
     	<div id="barre" class="optimize">
@@ -38,7 +38,7 @@
     	<div id="processing" class="optimize"></div>
     </div>
 
-<!-- 	<div id="my_camera"></div> -->
+	
 
 	<div id="scrollbar" class="optimize"></div>
 	
@@ -47,68 +47,92 @@
 <!-- 		<div id="bg"></div> -->
 		<div id="container">
 		
-			<div id="s3-s1-hz-run" class="section" data-navigation-tag="s3-s1">
-	            <img id="s3-s1-bg" src="images/stage3/1/bg-1280.jpg" class="optimizeMe" />
-	            <img id="s3-s1-jp-top" src="images/stage3/1/jp-top.png" class="optimizeMe" />
-	            <img id="s3-s1-jp-shadow" src="images/stage3/1/jp-shadow.png" class="optimizeMe" />
-	        </div>
-	        
-			<div id="s3-s1" class="section" data-navigation-tag="s3-s1">
-	            <img id="s3-s1-bg" src="images/stage3/1/bg-1280.jpg" class="optimizeMe" />
-	            <img id="s3-s1-jp-top" src="images/stage3/1/jp-top.png" class="optimizeMe" />
-	            <img id="s3-s1-jp-shadow" src="images/stage3/1/jp-shadow.png" class="optimizeMe" />
-	        </div>
-	        
-	        <div id="s3-s2" class="section" data-navigation-tag="s3-s2">
-	            <img id="s3-s2-slot" src="images/stage3/2/slot.png" class="optimizeMe" />
-	            <img id="s3-s2-bg" src="images/stage3/2/bg.jpg" class="optimizeMe" />
-	            <img id="s3-s2-jp-run" src="images/stage3/2/jp-run.png" class="optimizeMe" />
-	            <img id="s3-s2-drop" src="images/stage3/2/drop.png" class="optimizeMe" />
-	        </div>
-	        
-	        <div id="s3-s3-s1" class="section" data-navigation-tag="s3-s3-s1">
-	            <img id="s3-s3-s1-slot1" src="images/stage3/3/slot1.png" class="optimizeMe" />
-	            <img id="s3-s3-s1-bg1" src="images/stage3/3/bg1.png" class="optimizeMe" />
-	            <img id="s3-s3-s1-jp1" src="images/stage3/3/jp1.png" class="optimizeMe" />
+			<div id="s3-hz-s1" class="section sauAnimation">
+	            <img id="s3-hz-s1-bg" src="images/stage3/hz-s1/bg.jpg" class="sauAnimation" />
+	            <img id="s3-hz-s1-jp1" src="images/stage3/hz-s1/jp1.png" class="sauAnimation" />
+	            <img id="s3-hz-s1-tree2" src="images/stage3/hz-s1/tree2.png" class="sauAnimation" />
+	            <img id="s3-hz-s1-tree1" src="images/stage3/hz-s1/tree1.png" class="sauAnimation" />
 	            
-	            
+	            <img id="s3-hz-s1-glass" src="images/stage3/hz-s1/glass.png" class="sauAnimation" />
 	        </div>
 	        
-	        <div id="s3-s3-s2" class="section" data-navigation-tag="s3-s3-s2">
-	        	<img id="s3-s3-s2-slot2" src="images/stage3/3/slot23.png" class="optimizeMe" />
-	        	<img id="s3-s3-s2-bg2" src="images/stage3/3/bg23.png" class="optimizeMe" />
+			<div id="s3-s1" class="section sauAnimation">
+	            <img id="s3-s1-bg" src="images/stage3/1/bg-1280.jpg" class="sauAnimation" />
+	            <img id="s3-s1-jp-top" src="images/stage3/1/jp-top.png" class="sauAnimation" />
+	            <img id="s3-s1-jp-shadow" src="images/stage3/1/jp-shadow.png" class="sauAnimation" />
+	        </div>
+	        
+	        <div id="s3-s2" class="section sauAnimation">
+	            <img id="s3-s2-slot" src="images/stage3/2/slot.png" class="sauAnimation" />
+	            <img id="s3-s2-bg" src="images/stage3/2/bg.jpg" class="sauAnimation" />
+	            <img id="s3-s2-jp-run" src="images/stage3/2/jp-run.png" class="sauAnimation" />
+	            <img id="s3-s2-drop" src="images/stage3/2/drop.png" class="sauAnimation" />
+	        </div>
+	        
+			<!-- run horizontal sunset -->
+	        <div id="s3-hz-ss" class="section sauAnimation">
+	            <img id="s3-hz-ss-bg" src="images/stage3/hz-ss/bg.jpg" class="sauAnimation s3-hz-ss" />
+	            <img id="s3-hz-ss-d3" src="images/stage3/hz-ss/d3.png" class="sauAnimation s3-hz-ss" />
+	            <img id="s3-hz-ss-d2" src="images/stage3/hz-ss/d2.png" class="sauAnimation s3-hz-ss" />
+	            <img id="s3-hz-ss-jp" src="images/stage3/hz-ss/jp.png" class="sauAnimation s3-hz-ss" />
+	            <img id="s3-hz-ss-d1" src="images/stage3/hz-ss/d1.png" class="sauAnimation s3-hz-ss" />
+	            <img id="s3-hz-ss-jpup" src="images/stage3/hz-ss/jpup.png" class="sauAnimation s3-hz-ss" />
+	        </div>
+	        
+	        <!-- horizontal slot -->
+	        <div id="s3-s3-s1" class="section sauAnimation">
+	            <img id="s3-s3-s1-slot1" src="images/stage3/3/slot1.png" class="sauAnimation" />
+	            <img id="s3-s3-s1-bg1" src="images/stage3/3/bg1.png" class="sauAnimation" />
+	            <img id="s3-s3-s1-jp1" src="images/stage3/3/jp1.png" class="sauAnimation" />
+	        </div>
+	        
+	        <div id="s3-s3-s2" class="section sauAnimation">
+	        	<img id="s3-s3-s2-slot2" src="images/stage3/3/slot23.png" class="sauAnimation" />
+	        	<img id="s3-s3-s2-bg2" src="images/stage3/3/bg23.png" class="sauAnimation" />
 	        	<div id="s3-s3-s2-sprite">
-	            	<img id="s3-s3-s2-jp2" src="images/stage3/3/jp2.png" class="optimizeMe" />
-					<img id="s3-s3-s2-jp3" src="images/stage3/3/jp3.png" class="optimizeMe" />
+	            	<img id="s3-s3-s2-jp2" src="images/stage3/3/jp2.png" class="sauAnimation" />
+					<img id="s3-s3-s2-jp3" src="images/stage3/3/jp3.png" class="sauAnimation" />
 				</div>
 	        </div>
 	        
-	        <div id="s3-s4" class="section" data-navigation-tag="s3-s4">
-	        	<img id="s3-s4-ex-wide" src="images/stage3/4/ex-wide.jpg" class="optimizeMe" />
-				<img id="s3-s4-ex-zoom" src="images/stage3/4/ex-zoom.jpg" class="optimizeMe" />
-	            <img id="s3-s4-sand" src="images/stage3/4/sand.jpg" class="optimizeMe" />
-	            <img id="s3-s4-er1" src="images/stage3/4/er1.jpg" class="optimizeMe" />
-	            <img id="s3-s4-er2" src="images/stage3/4/er2.jpg" class="optimizeMe" />
-	            <img id="s3-s4-er3" src="images/stage3/4/er3.jpg" class="optimizeMe" />
-	            <img id="s3-s4-er4" src="images/stage3/4/er4.jpg" class="optimizeMe" />
-	            <img id="s3-s4-jp" src="images/stage3/4/jp.jpg" class="optimizeMe" />
+	        <div id="s3-s4" class="section sauAnimation">
+	        	<img id="s3-s4-ex-wide" src="images/stage3/4/ex-wide.jpg" class="sauAnimation" />
+				<img id="s3-s4-ex-zoom" src="images/stage3/4/ex-zoom.jpg" class="sauAnimation" />
+	            <img id="s3-s4-sand" src="images/stage3/4/sand.jpg" class="sauAnimation" />
+	            <img id="s3-s4-er1" src="images/stage3/4/er1.jpg" class="sauAnimation" />
+	            <img id="s3-s4-er2" src="images/stage3/4/er2.jpg" class="sauAnimation" />
+	            <img id="s3-s4-er3" src="images/stage3/4/er3.jpg" class="sauAnimation" />
+	            <img id="s3-s4-er4" src="images/stage3/4/er4.jpg" class="sauAnimation" />
+	            <img id="s3-s4-jp" src="images/stage3/4/jp.jpg" class="sauAnimation" />
+	            <img id="s3-s4-glass" src="images/stage3/4/glass.jpg" class="sauAnimation" />
+				<div id="my_camera"></div>
+				<script language="JavaScript">
+					Webcam.set({
+						width: 1280,
+						height: 720,
+						image_format: 'jpeg',
+						jpeg_quality: 90
+					});
+					Webcam.attach( '#my_camera' );
+				</script>
+	            <img id="s3-s4-glass-tp" src="images/stage3/4/glass-tp.png" class="sauAnimation" />
 	        </div>
 	        
-	        <div id="s3-s5" class="section" data-navigation-tag="s3-s5">
-	        	<img id="s3-s5-b0" src="images/stage3/5/b0.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b1" src="images/stage3/5/b1.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b2" src="images/stage3/5/b2.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b3" src="images/stage3/5/b3.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b4" src="images/stage3/5/b4.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b5" src="images/stage3/5/b5.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b6" src="images/stage3/5/b6.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b7" src="images/stage3/5/b7.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b8" src="images/stage3/5/b8.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b9" src="images/stage3/5/b9.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b10" src="images/stage3/5/b10.jpg" class="optimizeMe" />
-	        	<img id="s3-s5-b10-g0" src="images/stage3/5/b10-g0.png" class="optimizeMe" />
-	        	<img id="s3-s5-b10-g1" src="images/stage3/5/b10-g1.png" class="optimizeMe" />
-	        	<img id="s3-s5-b10-g2" src="images/stage3/5/b10-g2.png" class="optimizeMe" />
+	        <div id="s3-s5" class="section sauAnimation">
+	        	<img id="s3-s5-b0" src="images/stage3/5/b0.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b1" src="images/stage3/5/b1.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b2" src="images/stage3/5/b2.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b3" src="images/stage3/5/b3.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b4" src="images/stage3/5/b4.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b5" src="images/stage3/5/b5.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b6" src="images/stage3/5/b6.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b7" src="images/stage3/5/b7.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b8" src="images/stage3/5/b8.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b9" src="images/stage3/5/b9.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b10" src="images/stage3/5/b10.jpg" class="sauAnimation" />
+	        	<img id="s3-s5-b10-g0" src="images/stage3/5/b10-g0.png" class="sauAnimation" />
+	        	<img id="s3-s5-b10-g1" src="images/stage3/5/b10-g1.png" class="sauAnimation" />
+	        	<img id="s3-s5-b10-g2" src="images/stage3/5/b10-g2.png" class="sauAnimation" />
 	        </div>
 	        
 	        
@@ -118,7 +142,47 @@
 	</div>
 	
 	<div id="sceneBuffer"></div>
+	
 
-
+<!-- 	<audio class="sauAudio" id="" loop preload="auto"> -->
+	<audio class="sauAudio" id="audioRunMain" preload="auto">
+		<source src="music/S3_Running_Main.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioRunMid" preload="auto">
+		<source src="music/S3_Running_Mid_Loop.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioRunEnd" preload="auto">
+		<source src="music/S3_Running_End_Loop.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioWipeMedium" preload="auto">
+		<source src="music/wipe_medium.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioZoomin" preload="auto">
+		<source src="music/Zoom_in.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioRunning3" preload="auto">
+		<source src="music/Running3.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioMirrorSan" preload="auto">
+		<source src="music/S3_MirrorScene_SAN_MELODY.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioMirrorDrum1" preload="auto">
+		<source src="music/MirrorHit_1_Drums.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioMirrorDrum2" preload="auto">
+		<source src="music/MirrorHit_2_Drums.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioMirrorDrum3" preload="auto">
+		<source src="music/MirrorHit_3_Drums.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioBangGlass" preload="auto">
+		<source src="music/Bang_on_glass.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioBreath" preload="auto">
+		<source src="music/Breathing1.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="sauAudio" id="audioClassBreak" preload="auto">
+		<source src="music/Glass_break.mp3" type="audio/mpeg">
+	</audio>
 </body>
 </html>

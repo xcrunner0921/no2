@@ -1,4 +1,7 @@
-jQuery.fn.extend({
+/*
+ * 커스텀 타이머 
+ */
+$.fn.extend({
     everyTime: function(interval, label, fn, times) {
         return this.each(function() {
             jQuery.timer.add(this, interval, label, fn, times)
@@ -15,7 +18,7 @@ jQuery.fn.extend({
         })
     }
 });
-jQuery.extend({
+$.extend({
     timer: {
         global: [],
         guid: 1,
@@ -92,7 +95,7 @@ jQuery.extend({
         }
     }
 });
-jQuery(window).bind("unload", function() {
+$(window).bind("unload", function() {
     jQuery.each(jQuery.timer.global, function(index, item) {
         jQuery.timer.remove(item)
     })
@@ -114,37 +117,86 @@ $(function() {
 	
 	var currentScene;
 	var isPause = false;
-	var scenes = [];
 	
-	$("*[id^='s3-']").each(function(){
-		scenes.push($(this));
-	});
-	
+	//var scenes = [];
+	//$("*[id^='s3-']").each(function(){
+	//	scenes.push($(this));
+	//});
 	//console.log(scenes.length);
 	
+	var audios = {
+			  audioRunMain : $("#audioRunMain")
+			 ,audioRunMid : $("#audioRunMid")
+			 ,audioRunEnd : $("#audioRunEnd")
+			 ,audioWipeMedium : $("#audioWipeMedium")
+			 ,audioZoomin : $("#audioZoomin")
+			 ,audioRunning3 : $("#audioRunning3")
+			 ,audioMirrorSan : $("#audioMirrorSan")
+			 ,audioMirrorDrum1 : $("#audioMirrorDrum1")
+			 ,audioMirrorDrum2 : $("#audioMirrorDrum2")
+			 ,audioMirrorDrum3 : $("#audioMirrorDrum3")
+			 ,audioBangGlass : $("#audioBangGlass")
+			 ,audioBreath : $("#audioBreath")
+			 ,audioClassBreak : $("#audioClassBreak")
+	};
+	var playingAudios = [];
+	
+	/*
+	 * 자동 플레이 토글 
+	 */
 	$("#autoplay").bind("click", function() {
 		//console.log("click");
 
         $(this).toggleClass("disabled");
-        if ($(this).hasClass("disabled")) {
+        /*if ($(this).hasClass("disabled")) {
         	$.each(scenes, function(index, obj){
         		//console.log("pause");
         		$(obj).pause();
         	});
 
+        	$.each(playingAudios, function(index, obj){
+        		//console.log("pause");
+        		$(obj).trigger('pause');
+        	});
         } else {
         	$.each(scenes, function(index, obj){
         		//console.log("resume");
         		$(obj).resume();
         	});
+        	$.each(playingAudios, function(index, obj){
+        		//console.log("pause");
+        		$(obj).trigger('play');
+        	});
+        	
         	$(document).stopTime("autoTimer");	// 자동시작 타이머 중지 
+        }*/
+        if ($(this).hasClass("disabled")) {
+        	$(".sauAnimation").pause();
+        	$(".sauAudio").trigger('pause')
+        } else {
+        	$(document).stopTime("autoTimer");	// 자동시작 타이머 중지 
+        	$(".sauAnimation").resume();
+        	$(".sauAudio").trigger('play')
+        	//$(document).stopTime("autoTimer");	// 자동시작 타이머 중지 
         }
+        
     });;
 	
+    /*
+     * 사운드 뮤트 토글 
+     */
 	$("#sound").bind("click", function() {
         $(this).toggleClass("disabled");
+        audioMuted();
     });;
+    
+    var audioMuted = function () {
+    	$(".sauAudio").prop("muted", !$(".sauAudio").prop("muted"));
+    };;
 	
+    /*
+     * animation start
+     */
 	start();
 	
 	function ShowCustomDialog()
@@ -199,6 +251,9 @@ $(function() {
         });
     }
     
+    /*
+     * animation start
+     */
     function start() {
     	$("#sound, #autoplay, #separation").animate({
             top: 23
@@ -207,28 +262,52 @@ $(function() {
     	$("#intro").delay(1000).fadeOut("slow", function() {
             $(document).oneTime(7000, "autoTimer", function() {
                 $("#autoplay").trigger("click");
+                audios['audioRunMain'].trigger('pause');
             });
 
-    		s3s1s1();
-//          s3s3s1();
-//          s3s4();
-//          s3s5();
+            s3hzs1();	/* run paradise horizontal */
+//            s3s1s1();	/* vertical run */
+//            s3s2();		/* diagonal slot */
+//            s3hzss();	/* run horizontal sunset */
+//            s3s3s1();	/* horizontal slot */
+//            s3s4();		/* sand glass */
+//            s3s5();		/* hit glass */
             $("#intro").remove();
-        });
-    	
-        
+        });  
     } 
     
-
-
+    /* paradise horizontal run */
+    var s3hzs1 = function () {
+    	audios['audioRunMain'].trigger('pause');
+    	//playingAudios.push(audios['audioRunMain']);
+    	$("#s3-hz-s1").fadeTo(10, 1.0, function (next) {
+	    	//$("#s3-hz-s1").css('visibility', 'visible');
+	
+	    	$("#s3-hz-s1-jp1").animate({left: '1500px'}, 6000, function() {
+	    		s3s1s1();
+//	    		$("#s3-hz-s1").css('visibility', 'hidden');
+	    		$("#s3-hz-s1").remove();
+	    	});
+			$("#s3-hz-s1-tree1").animate({left: '-1100px'}, 12000);
+			$("#s3-hz-s1-tree2").animate({left: '-1300px'}, 10500);
+			$("#s3-hz-s1-glass").animate({left: '-1400px'}, 9500);
+			
+			$("#s3-hz-s1-bg").animate({left: '-600px'}, 14500, function() {
+				$("#s3-hz-s1").animate({top: '-1280px'}, 3000, function() {
+					//$("#s3-hz-s1").css('visibility', 'hidden');
+				});
+			});
+    	});
+    	$("#s3-hz-s1").pause();	// 첫 씬 에서 먼저 포즈한다
+    };;
+    
+    /* vertical run */
     var s3s1s1 = function () {
     	$("#s3-s1").css('visibility', 'visible');
     	$("#s3-s1-bg").css('visibility', 'visible');
 		$("#s3-s1-bg").animate({top: '0px'}, 1000, 'easeOutQuart', function() {
 			s3s1s2(); 
 		});
-
-		$("#s3-s1-bg").pause();	// 첫 씬 에서 먼저 포즈한다 
     };;
     
     var s3s1s2 = function () {
@@ -243,38 +322,64 @@ $(function() {
 		});
     };;
     
+    /* diagonal slot */
 	var s3s2 = function () {
 		$("#s3-s2").animate({top: '0px', left: '0px'}, 1000, 'easeOutQuart', function() {
 			$("#s3-s2-bg").animate({left: '312px'}, 5000);
 			$("#s3-s2-drop").animate({left: '300px'}, 'slow');
 			$("#s3-s2-jp-run").animate({left: '300px'}, 'slow', function() {
-				$("#s3-s2").animate({top: topX2, left: leftX2}, 2000, 'easeOutQuart', function() { s3s3s1(); });
+				$("#s3-s2").animate({top: topX2, left: leftX2}, 2000, 'easeOutQuart', function() {
+					s3hzss();
+				});
 			});
 		});
 	};;
 	
+	/* run horizontal sunset */
+	var s3hzss = function () {
+		var W = $(window).width();
+		$("#s3-hz-ss").fadeTo(10, 1.0, function (next) {
+    		$("#s3-hz-ss").animate({left: '0px'}, 3000, function() {
+    			var jp = $("#s3-hz-ss-jp");
+    			jp.css({left: W/2-jp.width()/2});
+    		
+    			$("#s3-hz-ss-bg").animate({left: '-1000px'}, 12000);
+
+    			$("#s3-hz-ss-d3").animate({left: '-3000px'}, 9000);
+				$("#s3-hz-ss-d2").animate({left: '-5000px'}, 8000);
+				$("#s3-hz-ss-d1").animate({left: '-6800px'}, 7000, function() {
+					$(".s3-hz-ss").pause();
+					s3s3s1();
+					$("#s3-hz-ss").remove();
+				});
+				$("#s3-hz-ss-jpup").animate({left: '-8000px'}, 6500);
+    		});
+    	});
+    };;
+	
+	/* horizontal slot */
 	function s3s3s1() {
-		$("#s3-s3-s1").animate({top: '0px', left: '0px'}, 1000, 'easeOutQuart', function() {
-			$("#s3-s3-s1-jp1").animate({left: '300px'}, 'slow', function() {
-				$("#s3-s3-s1").css('visibility', 'visible');
-				s3s3s2();
+		//$("#s3-s3-s1").css('visibility', 'visible');
+		$("#s3-s3-s1").fadeTo(10, 1.0, function (next) {
+			$("#s3-s3-s1").animate({top: '0px', left: '0px'}, 1000, 'easeOutQuart', function() {
+				$("#s3-s3-s1-jp1").css('visibility', 'visible');
+				$("#s3-s3-s1-jp1").animate({left: '500px'}, 'slow', function() {
+					s3s3s2();
+				});
 			});
 		});
 	}
 	
-	// 수평 스크롤 
 	function s3s3s2() {
-		$("#s3-s3-s2").css('visibility', 'visible');
-		$("#s3-s3-s1").css('visibility', 'hidden');
-		$("#s3-s3-s1-slot2").css('visibility', 'hidden');
-		$("#s3-s3-s1-bg2").css('visibility', 'hidden');
-		$("#s3-s3-s1-jp2").css('visibility', 'hidden');
-		$("#s3-s3-s2-jp2").animate({left: '1200px'}, 1000, 'linear', function() {
-			$("#s3-s3-s2").animate({top: '-720px'}, 'slow', function() {
+		$("#s3-s3-s2").fadeTo(10, 1.0, function (next) {
+			$("#s3-s3-s1").remove();	// delete pre scene
+			$("#s3-s3-s2-jp2").animate({left: '1200px'}, 1000, 'linear', function() {
+				$("#s3-s3-s2").animate({top: '-720px'}, 'slow', function() {
+					
+				});
 				
+				s3s4(); 
 			});
-			
-			//s3s4(); 
 		});
 	}
 	/* use step, presenting sprite
@@ -290,12 +395,13 @@ $(function() {
 
 	 */
 	
+	/* sand glass */
 	function s3s4() {
 		var fadeDelay = 800;	
 		var scale = 2.2
 		$("#s3-s4").css('visibility', 'visible');
 		$("#s3-s4").animate({top: '0px'}, 'slow', function() {
-			$("#s3-s4-ex-wide").animate({scale: scale}, 1000, function() {
+			$("#s3-s4-ex-wide").delay('2000').animate({scale: scale}, 1000, function() {
 				$("#s3-s4-ex-zoom").css('visibility', 'visible');
 				
 				$("#s3-s4-ex-zoom").animate({top: '0px'}, 1000, 'linear', function() {
@@ -308,9 +414,14 @@ $(function() {
 							$("#s3-s4-er2").delay( fadeDelay ).fadeTo(500, 1.0, function() {
 								$("#s3-s4-er3").delay( fadeDelay ).fadeTo(500, 1.0, function() {
 									$("#s3-s4-er4").delay( fadeDelay ).fadeTo(500, 1.0, function() {
-										$(this).animate({scale: scale}, 1000, function() {
-											s3s5();
+										$("#s3-s4-glass").fadeTo(1500, 1.0);
+										$("#s3-s4-glass-tp").fadeTo(1500, 1.0, function() {
+											$("#my_camera").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
+												s3s5();
+											    next();
+											});
 										});
+										
 									});
 								});
 							});
@@ -322,22 +433,20 @@ $(function() {
 		});
 	}
 	
+	/* hit glass */
 	var fadeDelay = 20;
 	var delay = 1000;
 	function s3s5() {
 		$("#s3-s4").animate({top: '-720px'}, 'slow');
 		$("#s3-s5").css('visibility', 'visible');
 		$("#s3-s5").animate({top: '0px'}, 'slow').delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b1 fadeTo");
 			s3s5s2(); 
 		    next();
-			
 		});
 	}
 	
 	function s3s5s2() {
 		$("#s3-s5-b2").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b2 fadeTo");
 			s3s5s3(); 
 		    next();
 		});
@@ -345,7 +454,6 @@ $(function() {
 	
 	function s3s5s3() {
 		$("#s3-s5-b3").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b3 fadeTo");
 			s3s5s4(); 
 		    next();
 		});
@@ -353,7 +461,6 @@ $(function() {
 	
 	function s3s5s4() {
 		$("#s3-s5-b4").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b4 fadeTo");
 			s3s5s5(); 
 		    next();
 		});
@@ -361,7 +468,6 @@ $(function() {
 	
 	function s3s5s5() {
 		$("#s3-s5-b5").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b5 fadeTo");
 			s3s5s6(); 
 		    next();
 		});
@@ -369,7 +475,6 @@ $(function() {
 	
 	function s3s5s6() {
 		$("#s3-s5-b6").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b6 fadeTo");
 			s3s5s7(); 
 		    next();
 		});
@@ -378,7 +483,6 @@ $(function() {
 	function s3s5s7() {
 		delay = 500;
 		$("#s3-s5-b7").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b7 fadeTo");
 			s3s5s8(); 
 		    next();
 		});
@@ -387,7 +491,6 @@ $(function() {
 	function s3s5s8() {
 		delay = 200;
 		$("#s3-s5-b8").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b8 fadeTo");
 			s3s5s9(); 
 		    next();
 		});
@@ -396,7 +499,6 @@ $(function() {
 	function s3s5s9() {
 		delay = 1000;
 		$("#s3-s5-b9").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b9 fadeTo");
 			s3s5s10(); 
 		    next();
 		});
@@ -406,7 +508,6 @@ $(function() {
 		var scale = 1.6
 		delay = 10;
 		$("#s3-s5-b10").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
-//			console.log("s3-s5-b10 fadeTo");
 			$("#s3-s5-b10-g0").fadeTo(fadeDelay, 1.0);
 			$("#s3-s5-b10-g1").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 1000);
 			$("#s3-s5-b10-g2").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 3000);
@@ -417,9 +518,7 @@ $(function() {
     
 	
     	
-});
-
-var varAutoplay = false;
+});;
 
 function pl() {
 	$.ajax({
@@ -488,7 +587,10 @@ function setPreload() {
         }
     });
 }	// setPreload
-    
+
+/*
+ * 웹캠 셋팅 
+ */
 function setWebcam() {
 	Webcam.set({
 		width: 1280,
