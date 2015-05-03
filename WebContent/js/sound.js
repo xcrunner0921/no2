@@ -28,5 +28,5 @@ if (isMobile == false) {
         window.groupSound.toggleMute();
     });
     
-    soundBreathing1.fadeTo(musicVolume, 600);
+    //soundBreathing1.fadeTo(musicVolume, 600);
 }

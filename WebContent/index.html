@@ -12,9 +12,12 @@
     <script type="text/javascript" src="js/jquery-animate-css-rotate-scale.js"></script>
 	
 	<script type="text/javascript" src="js/webcam.js"></script>
+	<script type="text/javascript" src="js/buzz.js"></script>	<!-- important order -->
 	<script type="text/javascript" src="js/no2.js"></script>
 	<script type="text/javascript" src="js/scroll.js"></script>
 	<script type="text/javascript" src="js/jquery-pause.js"></script>
+	<script type="text/javascript" src="js/jquery.spritely.js"></script>
+	
 	
 	<style type="text/css">
 	</style>
@@ -42,13 +45,15 @@
 
 	<div id="scrollbar" class="optimize"></div>
 	
+	<div id="slot"></div>
+	
 	
 	<div id="scene">
 <!-- 		<div id="bg"></div> -->
 		<div id="container">
 		
 			<div id="s3-hz-s1" class="section sauAnimation">
-	            <img id="s3-hz-s1-bg" src="images/stage3/hz-s1/bg.jpg" class="sauAnimation" />
+	            <img id="s3-hz-s1-bg" src="images/stage3/hz-s1/bg.png" class="sauAnimation" />
 	            <img id="s3-hz-s1-jp1" src="images/stage3/hz-s1/jp1.png" class="sauAnimation" />
 	            <img id="s3-hz-s1-tree2" src="images/stage3/hz-s1/tree2.png" class="sauAnimation" />
 	            <img id="s3-hz-s1-tree1" src="images/stage3/hz-s1/tree1.png" class="sauAnimation" />
@@ -74,7 +79,8 @@
 	            <img id="s3-hz-ss-bg" src="images/stage3/hz-ss/bg.jpg" class="sauAnimation s3-hz-ss" />
 	            <img id="s3-hz-ss-d3" src="images/stage3/hz-ss/d3.png" class="sauAnimation s3-hz-ss" />
 	            <img id="s3-hz-ss-d2" src="images/stage3/hz-ss/d2.png" class="sauAnimation s3-hz-ss" />
-	            <img id="s3-hz-ss-jp" src="images/stage3/hz-ss/jp.png" class="sauAnimation s3-hz-ss" />
+<!-- 	            <img id="s3-hz-ss-jp" src="images/stage3/hz-ss/jp.png" class="sauAnimation s3-hz-ss" /> -->
+				<div id="s3-hz-ss-jp" class="sauAnimation"></div>
 	            <img id="s3-hz-ss-d1" src="images/stage3/hz-ss/d1.png" class="sauAnimation s3-hz-ss" />
 	            <img id="s3-hz-ss-jpup" src="images/stage3/hz-ss/jpup.png" class="sauAnimation s3-hz-ss" />
 	        </div>
@@ -89,10 +95,11 @@
 	        <div id="s3-s3-s2" class="section sauAnimation">
 	        	<img id="s3-s3-s2-slot2" src="images/stage3/3/slot23.png" class="sauAnimation" />
 	        	<img id="s3-s3-s2-bg2" src="images/stage3/3/bg23.png" class="sauAnimation" />
-	        	<div id="s3-s3-s2-sprite">
-	            	<img id="s3-s3-s2-jp2" src="images/stage3/3/jp2.png" class="sauAnimation" />
-					<img id="s3-s3-s2-jp3" src="images/stage3/3/jp3.png" class="sauAnimation" />
-				</div>
+	        	<div id="s3-s3-s2-jp2" class="sauAnimation"></div>
+<!-- 	        	<div id="s3-s3-s2-sprite"> -->
+<!-- 	            	<img id="s3-s3-s2-jp2" src="images/stage3/3/jp2.png" class="sauAnimation" /> -->
+<!-- 					<img id="s3-s3-s2-jp3" src="images/stage3/3/jp3.png" class="sauAnimation" /> -->
+<!-- 				</div> -->
 	        </div>
 	        
 	        <div id="s3-s4" class="section sauAnimation">
@@ -103,7 +110,7 @@
 	            <img id="s3-s4-er2" src="images/stage3/4/er2.jpg" class="sauAnimation" />
 	            <img id="s3-s4-er3" src="images/stage3/4/er3.jpg" class="sauAnimation" />
 	            <img id="s3-s4-er4" src="images/stage3/4/er4.jpg" class="sauAnimation" />
-	            <img id="s3-s4-jp" src="images/stage3/4/jp.jpg" class="sauAnimation" />
+	            
 	            <img id="s3-s4-glass" src="images/stage3/4/glass.jpg" class="sauAnimation" />
 				<div id="my_camera"></div>
 				<script language="JavaScript">
@@ -116,6 +123,7 @@
 					Webcam.attach( '#my_camera' );
 				</script>
 	            <img id="s3-s4-glass-tp" src="images/stage3/4/glass-tp.png" class="sauAnimation" />
+	            <img id="s3-s4-jp" src="images/stage3/4/jp.jpg" class="sauAnimation" />
 	        </div>
 	        
 	        <div id="s3-s5" class="section sauAnimation">
@@ -135,7 +143,9 @@
 	        	<img id="s3-s5-b10-g2" src="images/stage3/5/b10-g2.png" class="sauAnimation" />
 	        </div>
 	        
-	        
+	        <div id="s3-s6" class="section sauAnimation">
+	        	<img id="s3-s6-jp" src="images/stage3/6/jp.jpg" class="sauAnimation" />
+	        </div>
 	        
 	        
 		</div>
@@ -144,45 +154,44 @@
 	<div id="sceneBuffer"></div>
 	
 
-<!-- 	<audio class="sauAudio" id="" loop preload="auto"> -->
-	<audio class="sauAudio" id="audioRunMain" preload="auto">
-		<source src="music/S3_Running_Main.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioRunMid" preload="auto">
-		<source src="music/S3_Running_Mid_Loop.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioRunEnd" preload="auto">
-		<source src="music/S3_Running_End_Loop.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioWipeMedium" preload="auto">
-		<source src="music/wipe_medium.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioZoomin" preload="auto">
-		<source src="music/Zoom_in.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioRunning3" preload="auto">
-		<source src="music/Running3.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioMirrorSan" preload="auto">
-		<source src="music/S3_MirrorScene_SAN_MELODY.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioMirrorDrum1" preload="auto">
-		<source src="music/MirrorHit_1_Drums.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioMirrorDrum2" preload="auto">
-		<source src="music/MirrorHit_2_Drums.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioMirrorDrum3" preload="auto">
-		<source src="music/MirrorHit_3_Drums.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioBangGlass" preload="auto">
-		<source src="music/Bang_on_glass.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioBreath" preload="auto">
-		<source src="music/Breathing1.mp3" type="audio/mpeg">
-	</audio>
-	<audio class="sauAudio" id="audioClassBreak" preload="auto">
-		<source src="music/Glass_break.mp3" type="audio/mpeg">
-	</audio>
+<!-- 	<audio class="sauAudio" id="audioRunMain" preload="auto"> -->
+<!-- 		 <source src="music/S3_Running_Main.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioRunMid" preload="auto"> -->
+<!-- 		<source src="music/S3_Running_Mid_Loop.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioRunEnd" preload="auto"> -->
+<!-- 		<source src="music/S3_Running_End_Loop.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioWipeMedium" preload="auto"> -->
+<!-- 		<source src="music/wipe_medium.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioZoomin" preload="auto"> -->
+<!-- 		<source src="music/Zoom_in.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioRunning3" preload="auto"> -->
+<!-- 		<source src="music/Running3.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioMirrorSan" preload="auto"> -->
+<!-- 		<source src="music/S3_MirrorScene_SAN_MELODY.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioMirrorDrum1" preload="auto"> -->
+<!-- 		<source src="music/MirrorHit_1_Drums.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioMirrorDrum2" preload="auto"> -->
+<!-- 		<source src="music/MirrorHit_2_Drums.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioMirrorDrum3" preload="auto"> -->
+<!-- 		<source src="music/MirrorHit_3_Drums.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioBangGlass" preload="auto"> -->
+<!-- 		<source src="music/Bang_on_glass.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioBreath" preload="auto"> -->
+<!-- 		<source src="music/Breathing1.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
+<!-- 	<audio class="sauAudio" id="audioGlassBreak" preload="auto"> -->
+<!-- 		<source src="music/Glass_break.mp3" type="audio/mpeg"> -->
+<!-- 	</audio> -->
 </body>
 </html>

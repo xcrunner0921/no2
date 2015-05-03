@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="js/buzz.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#btn1').click(function(){
+     playSound('Breathing1');
+    });
+
+    $('#btn2').click(function(){
+         playSound('Running3');
+    });
+});
+
+
+function playSound(url) {
+    var snd = new buzz.sound('music/' + url, { formats: [ 'mp3' ] });
+    snd.play();
+} 
+</script>
+</head>
+<body>
+
+<input type="button" id="btn1" value="Play sound 1" />
+<input type="button" id="btn2" value="Play sound 2" />
+
+</body>
+</html>

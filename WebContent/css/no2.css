@@ -98,6 +98,23 @@ body {
 	color:#000;
 }
 
+#slot {
+	position:absolute;
+	width:100%;
+	height:100%;
+/* 	width: 1280px; */
+/* 	height: 720px; */
+/* 	background-color:#fff; */
+/* 	background-color:#000; */
+/* 	color:#000; */
+	background: transparent url(../images/bg.png) 0 0 no-repeat;
+	z-index:998;
+}
+
+.section {
+	width: 1280px;
+	height: 720px;
+}
 
 
 
@@ -112,8 +129,8 @@ body {
 /* 	visibility: hidden; */
 }
 #s3-hz-s1-bg {
-/* 	width:100%; */
-	height:100%;
+	width: auto;
+	height: 100%;
 /* 	max-width:100%; */
 /* 	max-height: 100%; */
 	position: absolute;
@@ -124,9 +141,9 @@ body {
 }
 #s3-hz-s1-jp1 {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: -280px;
@@ -135,9 +152,9 @@ body {
 }
 #s3-hz-s1-tree1 {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: -200px;
@@ -146,9 +163,9 @@ body {
 }
 #s3-hz-s1-tree2 {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -157,9 +174,9 @@ body {
 }
 #s3-hz-s1-glass {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: -150px;
@@ -168,8 +185,8 @@ body {
 }
 /*--------------------------- s3-s1 진평 러닝 다*/
 #s3-s1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -177,8 +194,8 @@ body {
 }
 
 #s3-s1-bg {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height:100%; */
 	position:absolute;
@@ -188,78 +205,80 @@ body {
 	visibility:hidden;
 }
 #s3-s1-jp-top {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height:100%; */
 	position:absolute;
-	top:0px;
+	top:-500px;
 	left:0px;
 /* 	z-index:50; */
 	visibility:hidden;
 }
 #s3-s1-jp-shadow {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height:100%; */
 	position:absolute;
-	top:0px;
+	top:-500px;
 	left:0px;
 /* 	z-index:50; */
 	visibility:hidden;
 }
 /*--------------------------- s3-s2 진평 러닝 대각선 슬롯 */
 #s3-s2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	left:-1280px;
 	top:-720px;
 }
 #s3-s2-slot {
-/* 	width:100%; */
-/* 	height:100%; */
-	max-width:100%;
-	max-height:100%;
+	width:100%;
+	height:100%;
+/* 	max-width:100%; */
+/* 	max-height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
 	z-index:51
 }
 #s3-s2-bg {
-/* 	height:720px; */
-/* 	width:1280px; */
-	max-width:100%;
-	max-height:100%;
+/* 	width:auto; */
+/* 	height:100%; */
+/* 	max-width:100%; */
+/* 	max-height:100%; */
 	position:absolute;
 	top:0px;
 	left:-312px;
 	z-index:49
 }
 #s3-s2-drop {
-/* 	height:720px; */
-/* 	width:1280px; */
-	max-width:100%;
-	max-height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
+/* 	max-width:100%; */
+/* 	max-height:100%; */
 	position:absolute;
 	top:0px;
-	left:0px;
+	left:-350px;
 	z-index:51
 }
 #s3-s2-jp-run {
 /* 	height:720px; */
 /* 	width:802px; */
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
-	left:0px;
+	left:-600px;
 	z-index:50
 }
 
 /*--------------------------- s3-hz-ss run horizontal sunset */
 #s3-hz-ss {
-	width: 100%;
-	height: 100%;
+/* 	width: 100%; */
+/* 	height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: 2000px;
@@ -268,7 +287,7 @@ body {
 }
 #s3-hz-ss-bg {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height: 100%; */
 	position: absolute;
@@ -279,9 +298,9 @@ body {
 }
 #s3-hz-ss-d3 {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: -600px;
@@ -290,31 +309,38 @@ body {
 }
 #s3-hz-ss-d2 {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: -900px;
 	z-index:3;
 /* 	visibility:hidden; */
 }
+/* #s3-hz-ss-jp { */
+/* 	height:100%; */
+/* 	max-height: 100%; */
+/* 	position: absolute; */
+/* 	top: 0px; */
+/* 	left: 0px; */
+/* 	z-index:4; */
+/* } */
 #s3-hz-ss-jp {
-/* 	width:100%; */
-	height:100%;
-/* 	max-width:100%; */
-	max-height: 100%;
+	background: transparent url(../images/stage3/hz-ss/jp.png) 0 0 no-repeat;
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	z-index:4;
-/* 	visibility:hidden; */
+	width: 225px;
+	height: 100%;
+/* 	max-height: 100%; */
+	z-index: 4;
 }
 #s3-hz-ss-d1 {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
-	max-height: 100%;
+/* 	max-height: 100%; */
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -323,7 +349,7 @@ body {
 }
 #s3-hz-ss-jpup {
 /* 	width:100%; */
-	height:100%;
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height: 100%; */
 	position: absolute;
@@ -332,10 +358,11 @@ body {
 	z-index:6;
 /* 	visibility:hidden; */
 }
+
 /*--------------------------- s3-s3-s1 horizontal slot */
 #s3-s3-s1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	left:1280px;
 	top:720px;
@@ -344,8 +371,8 @@ body {
 /* 	visibility:hidden; */
 }
 #s3-s3-s1-slot1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height:100%; */
 	position:absolute;
@@ -354,8 +381,8 @@ body {
 	z-index:51
 }
 #s3-s3-s1-bg1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -365,14 +392,14 @@ body {
 /* 	height:720px; */
 /* 	width:1280px; */
 	position:absolute;
-	top:-100px;
+	top:0px;
 	left:-580px;
 	z-index:50;
 	visibility:hidden;
 }
 #s3-s3-s2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	left:0px;
 	top:0px;
@@ -381,8 +408,8 @@ body {
 	opacity: 0;
 }
 #s3-s3-s2-slot2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 /* 	max-width:100%; */
 /* 	max-height:100%; */
 	position:absolute;
@@ -391,47 +418,55 @@ body {
 	z-index:54;
 }
 #s3-s3-s2-bg2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
 	z-index:52;
 }
+/* #s3-s3-s2-jp2 { */
+/* 	position:absolute; */
+/* 	top:-100px; */
+/* 	left:100px; */
+/* 	z-index:53; */
+/* } */
+/* #s3-s3-s2-jp3 { */
+/* 	position:absolute; */
+/* 	top:-100px; */
+/* 	left:100px; */
+/* 	z-index:53; */
+/* } */
 #s3-s3-s2-jp2 {
-/* 	height:720px; */
-/* 	width:1280px; */
-	position:absolute;
-	top:-100px;
-	left:100px;
-	z-index:53;
-}
-#s3-s3-s2-jp3 {
-	position:absolute;
-	top:-100px;
-	left:100px;
-	z-index:53;
+	background: transparent url(../images/stage3/3/jp2.png) 0 0 no-repeat;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 225px;
+	height: 100%;
+/* 	max-height: 100%; */
+	z-index: 53;
 }
 /*--------------------------- s3-s4 진평 비상구 */
 #s3-s4 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	left:0px;
 	top:720px;
 	visibility: hidden;
 }
 #s3-s4-ex-wide {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
 /* 	z-index:340; */
 }
 #s3-s4-ex-zoom {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	visibility: hidden;
 	position:absolute;
 	top:-720px;
@@ -439,8 +474,8 @@ body {
 /* 	z-index:348; */
 }
 #s3-s4-sand {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 /* 	visibility: hidden; */
 	position:absolute;
 	top:0px;
@@ -449,8 +484,8 @@ body {
 	opacity:0;
 }
 #s3-s4-er1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -458,8 +493,8 @@ body {
 	opacity:0;
 }
 #s3-s4-er2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -467,8 +502,8 @@ body {
 	opacity:0;
 }
 #s3-s4-er3 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -476,8 +511,8 @@ body {
 	opacity:0;
 }
 #s3-s4-er4 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -494,8 +529,8 @@ body {
 /* 	z-index:342; */
 }
 #my_camera {
-	width:50%;
-	height:50%;
+/* 	width:50%; */
+/* 	height:50%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -503,8 +538,8 @@ body {
 /* 	z-index:342; */
 }
 #s3-s4-glass {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -512,8 +547,8 @@ body {
 /* 	z-index:342; */
 }
 #s3-s4-glass-tp {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -522,34 +557,36 @@ body {
 }
 /*--------------------------- 진평 뱅뱅 */
 #s3-s5 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	left:0px;
 	top:720px;
 	visibility: hidden;
 }
 #s3-s5-b0 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
-	visibility: hidden;
+	opacity:.0;
+/* 	visibility: hidden; */
 /* 	z-index:340; */
 }
 #s3-s5-b1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
 /* 	visibility: hidden; */
+	opacity:.0;
 /* 	z-index:340; */
 }
 #s3-s5-b2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -557,8 +594,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b3 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -566,7 +603,7 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b4 {
-/* 	width:100%; */C
+/* 	width:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -574,8 +611,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b5 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -583,8 +620,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b6 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -592,8 +629,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b7 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -601,8 +638,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b8 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -610,8 +647,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b9 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -619,8 +656,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b10 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -628,8 +665,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b10-g0 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -637,8 +674,8 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b10-g1 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -646,13 +683,35 @@ body {
 /* 	z-index:340; */
 }
 #s3-s5-b10-g2 {
-	width:100%;
-	height:100%;
+/* 	width:100%; */
+/* 	height:100%; */
 	position:absolute;
 	top:0px;
 	left:0px;
 	opacity:.0;
 /* 	z-index:340; */
+}
+
+/* --------------------------- stage 3 ending */
+#s3-s6 {
+/* 	width:100%; */
+/* 	height:100%; */
+	position: absolute;
+	left: 0px;
+	top: 0px;
+/* 	opacity:.0; */
+	visibility: hidden;
+/* visibility: visible; */
+/* color:#ccc */
+/* z-index:999; */
+}
+#s3-s6-jp {
+/* 	width:100%; */
+/* 	height:100%; */
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity:.0;
 }
 /*---------------------------*/
 /*---------------------------*/
