@@ -315,6 +315,7 @@ $(function() {
         }, "slow");
     	
     	$("#intro").delay(1000).fadeOut("slow", function() {
+    		// 자동 시작 타이머 
             $(document).oneTime(7000, "autoTimer", function() {
                 $("#autoplay").trigger("click");
                 //audios['audioRunMain'].trigger('pause');
@@ -322,30 +323,90 @@ $(function() {
 
             $("#intro").remove();
             
-            s3hzs1();	/* run paradise horizontal */
+            s3s0();
+//            s3hzs1();	/* run paradise horizontal */
 //            s3s1s1();	/* vertical run */
-//            s3s2();		/* diagonal slot */
+//            s3s2();	/* top view - diagonal slot */
 //            s3hzss();	/* run horizontal sunset */
 //            s3s3s1();	/* horizontal slot */
 //            s3s4s1();		/* sand glass */
 //            s3s4s2();
 //            s3s5();		/* hit glass */
 //            s3s6();
+//            s3s7();
             
         });  
     } 
     
+    /* intro */
+    var s3s0 = function () { 	
+    	$("#s3-s0").fadeTo(3000, 1.0, function () {
+    		$("#s3-s0").fadeTo(1000, 0.0, function () {
+    			s3ml();
+        	});
+    	});
+    	$("#s3-s0").pause();	// 첫 씬 에서 먼저 포즈한다
+    };;
+    
+    /* monolog */
+    var s3ml = function () { 	
+    	$("#s3-ml").fadeTo(1500, 1.0, 'easeInCirc', function () {
+    		s3mls1();
+    	});
+    };;
+    
+    var s3mls1 = function () { 	
+    	$("#s3-ml-1").delay(1000).fadeTo(1500, 1.0, function () {
+    		s3mls2();
+    	});
+    };;
+
+    var s3mls2 = function () { 	
+    	$("#s3-ml-2").fadeTo(1500, 1.0, function () {
+    		s3mls3();
+    	});
+    };;
+
+    var s3mls3 = function () { 	
+    	$("#s3-ml-3").fadeTo(1500, 1.0, function () {
+    		s3mls4();
+    	});
+    };;
+
+    var s3mls4 = function () { 	
+    	$("#s3-ml-4").fadeTo(1500, 1.0, function () {
+    		s3mls5();
+    	});
+    };;
+
+    var s3mls5 = function () { 	
+    	$("#s3-ml-5").delay(2000).fadeTo(1000, 1.0, function () {
+    		s3mls6();
+    	});
+    };;
+
+    var s3mls6 = function () { 	
+    	$("#s3-ml-6").delay(2000).fadeTo(1000, 1.0, function () {
+    		s3mls7();
+    	});
+    };;
+
+    var s3mls7 = function () { 	
+    	$("#s3-ml-7").fadeTo(3000, 1.0, function () {
+    		$("#s3-ml").fadeTo(3000, 0.0, function () {
+    			s3hzs1();
+    		});
+    	});
+    };;
+    
+    
     /* paradise horizontal run */
     var s3hzs1 = function () { 	
-//    	playingAudios.push(audios['audioRunMain']);
-//    	audios['audioRunMain'].trigger('pause');
-    	
     	playingAudios.push(audioRunMain);
     	audioRunMain.fadeTo(musicVolume, 600);
-    	//window.groupSound.pause();
     	audioRunMain.pause();
     	    	
-    	$("#s3-hz-s1").fadeTo(10, 1.0, function (next) {
+    	$("#s3-hz-s1").fadeTo(1000, 1.0, 'easeInExpo', function () {
 	    	//$("#s3-hz-s1").css('visibility', 'visible');
 	
 	    	$("#s3-hz-s1-jp1").animate({left: '1500px'}, 6000, function() {
@@ -363,20 +424,15 @@ $(function() {
 				});
 			});
     	});
-    	$("#s3-hz-s1").pause();	// 첫 씬 에서 먼저 포즈한다
+    	//$("#s3-hz-s1").pause();	// 첫 씬 에서 먼저 포즈한다
     	//audios['audioRunMain'].trigger('pause');
     };;
     
-    /* vertical run */
+    /* top view - vertical run */
     var s3s1s1 = function () {
-//    	playingAudios.push(audios['audioBreath']);
-//    	audios['audioBreath'].trigger('play');
-//    	playingAudios.push(audios['audioRunning3']);
-//    	audios['audioRunning3'].trigger('play');
+
     	
-    	playingAudios.push(audioBreath);
     	playingAudios.push(audioRunning3);
-    	audioBreath.play();
     	audioRunning3.play();
     	
     	$("#s3-s1").css('visibility', 'visible');
@@ -390,28 +446,33 @@ $(function() {
     	$("#s3-s1").css('visibility', 'visible');
     	$("#s3-s1-jp-top").css('visibility', 'visible');
     	$("#s3-s1-jp-shadow").css('visibility', 'visible');
-		$("#s3-s1-jp-top").animate({top: '150px'}, 1500);
-		$("#s3-s1-jp-shadow").animate({top: '100px'}, 1500, function() {
+		$("#s3-s1-jp-top").animate({top: '100px'}, 3000);
+		$("#s3-s1-jp-shadow").animate({top: '50px'}, 3000, function() {
 			$("#s3-s1").animate({top: '1440px'}, 2000, 'easeOutQuart', function() { 
 				s3s2(); 
 			});
 		});
-		//playingAudios.pop();
     };;
     
-    /* diagonal slot */
+    /* top view - diagonal slot */
 	var s3s2 = function () {
+		playingAudios.push(audioBreath);
+    	audioBreath.play();
+    	
 		$("#s3-s2").animate({top: '0px', left: '0px'}, 1000, 'easeOutQuart', function() {
-			$("#s3-s2-bg").animate({left: '0px'}, 4000, function() {
-				$("#s3-s2").animate({top: topX2, left: leftX2}, 2000, 'easeOutQuart', function() {
-					s3hzss();
-				});
-			});
-			$("#s3-s2-drop").animate({left: '200px', top: '50'}, 3000);
-			$("#s3-s2-jp-run").animate({left: '00px'}, 3000, function() {
+			$("#s3-s2-bg").animate({left: '0px'}, 2000, function() {
 //				$("#s3-s2").animate({top: topX2, left: leftX2}, 2000, 'easeOutQuart', function() {
 //					s3hzss();
 //				});
+			});
+			$("#s3-s2-b1").fadeTo(500, 1.0, function() {
+				$("#s3-s2-b2").delay(1000).fadeTo(500, 1.0);
+			});
+			$("#s3-s2-drop").animate({left: '100px', top: '50'}, 3000);
+			$("#s3-s2-jp-run").animate({left: '100px', top: '0px'}, 3000, function() {
+				$("#s3-s2").animate({top: topX2, left: leftX2}, 1500, 'easeOutQuart', function() {
+					s3hzss();
+				});
 			});
 		});
 	};;
@@ -419,13 +480,13 @@ $(function() {
 	/* run horizontal sunset */
 	var s3hzss = function () {
 		$('#s3-hz-ss-jp')
-	        .sprite({fps: 5, no_of_frames: 2, rewind: true})
+	        .sprite({fps: 5, no_of_frames: 5, rewind: true})
 			.active();
 //		$('#s3-hz-ss-jp').active();
                         
 		var W = $(window).width();
 		$("#s3-hz-ss").fadeTo(10, 1.0, function (next) {
-    		$("#s3-hz-ss").animate({left: '0px'}, 3000, function() {
+    		$("#s3-hz-ss").animate({left: '0px'}, 1500, function() {
     			var jp = $("#s3-hz-ss-jp");
     			jp.css({left: W/2-jp.width()/2});
     		
@@ -434,7 +495,7 @@ $(function() {
     			$("#s3-hz-ss-d3").animate({left: '-3000px'}, 10000);
 				$("#s3-hz-ss-d2").animate({left: '-5000px'}, 9000);
 				$("#s3-hz-ss-d1").animate({left: '-6800px'}, 8000, function() {
-					$(".s3-hz-ss").pause();
+					//$(".s3-hz-ss").pause();
 					s3s3s1();
 					$("#s3-hz-ss").remove();
 				});
@@ -458,7 +519,7 @@ $(function() {
 	
 	function s3s3s2() {
 		$('#s3-s3-s2-jp2')
-	        .sprite({fps: 5, no_of_frames: 2})
+	        .sprite({fps: 5, no_of_frames: 5, rewind: true})
 	        .active();
 //		$('#s3-s3-s2-jp2').active();
 		
@@ -645,8 +706,6 @@ $(function() {
 	}
 	
 	function s3s5s9() {
-		
-		
 		delay = 1000;
 		$("#s3-s5-b9").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			s3s5s10(); 
@@ -654,6 +713,7 @@ $(function() {
 		});
 	}
 	
+	/* 유리 파편 */
 	function s3s5s10() {
 		playingAudios.push(audioGlassBreak);
 		audioGlassBreak.play();
@@ -663,7 +723,8 @@ $(function() {
 		$("#s3-s5-b10").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			$("#s3-s5-b10-g0").fadeTo(fadeDelay, 1.0);
 			$("#s3-s5-b10-g1").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 1700);
-			$("#s3-s5-b10-g2").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 3000);
+			$("#s3-s5-b10-g2").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 2400);
+			$("#s3-s5-b10-g3").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 3000);
 			s3s6();
 			deletePlayingAudio(audioGlassBreak);
 		    next();
@@ -671,8 +732,9 @@ $(function() {
 		
 	}
 	
+	/* 동굴입구 줌 아웃 */
 	function s3s6() {
-		console.log("s3s6");
+		//console.log("s3s6");
 		var scale = 0.07;
 		delay = 2000;
 		$("#s3-s6").css('visibility', 'visible');
@@ -681,11 +743,17 @@ $(function() {
 			//playingAudios.push(audioMirrorSan);
 			audioMirrorSan.fadeOut(8000, deletePlayingAudio(audioMirrorSan));
 			$("#s3-s6-jp").delay('2000').animate({scale: scale}, 4000, function() {
-
+				s3s7();
 			});
 		});
 	}
 
+	// ending 
+	var s3s7 = function () { 	
+    	$("#s3-s7").fadeTo(3000, 1.0, function () {
+
+    	});
+    };;
     
 	
     	
