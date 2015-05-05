@@ -121,7 +121,7 @@ function onResize() {
 //audioRunMain : $("#audioRunMain")
 //,audioRunMid : $("#audioRunMid")
 //,audioRunEnd : $("#audioRunEnd")
-//,audioWipeMedium : $("#audioWipeMedium")
+//,audioWipe : $("#audioWipe")
 //,audioZoomin : $("#audioZoomin")
 //,audioRunning3 : $("#audioRunning3")
 //,audioMirrorSan : $("#audioMirrorSan")
@@ -339,7 +339,12 @@ $(function() {
     } 
     
     /* intro */
-    var s3s0 = function () { 	
+    var s3s0 = function () {
+    	playingAudios.push(audioMonolog);
+    	//audioMonolog.play();
+    	audioMonolog.fadeTo(musicVolume, 3000);
+    	audioMonolog.pause();
+    	
     	$("#s3-s0").fadeTo(3000, 1.0, function () {
     		$("#s3-s0").fadeTo(1000, 0.0, function () {
     			s3ml();
@@ -349,7 +354,8 @@ $(function() {
     };;
     
     /* monolog */
-    var s3ml = function () { 	
+    var s3ml = function () {
+    	
     	$("#s3-ml").fadeTo(1500, 1.0, 'easeInCirc', function () {
     		s3mls1();
     	});
@@ -391,9 +397,11 @@ $(function() {
     	});
     };;
 
-    var s3mls7 = function () { 	
-    	$("#s3-ml-7").fadeTo(3000, 1.0, function () {
+    var s3mls7 = function () {
+    	audioMonolog.fadeOut(3000);
+    	$("#s3-ml-7").fadeTo(3000, 1.0, 'easeInExpo', function () {
     		$("#s3-ml").fadeTo(3000, 0.0, function () {
+    			deletePlayingAudio(audioMonolog);
     			s3hzs1();
     		});
     	});
@@ -403,8 +411,9 @@ $(function() {
     /* paradise horizontal run */
     var s3hzs1 = function () { 	
     	playingAudios.push(audioRunMain);
-    	audioRunMain.fadeTo(musicVolume, 600);
-    	audioRunMain.pause();
+    	audioRunMain.play();
+    	//audioRunMain.fadeTo(musicVolume, 600);
+    	
     	    	
     	$("#s3-hz-s1").fadeTo(1000, 1.0, 'easeInExpo', function () {
 	    	//$("#s3-hz-s1").css('visibility', 'visible');
@@ -482,7 +491,6 @@ $(function() {
 		$('#s3-hz-ss-jp')
 	        .sprite({fps: 5, no_of_frames: 5, rewind: true})
 			.active();
-//		$('#s3-hz-ss-jp').active();
                         
 		var W = $(window).width();
 		$("#s3-hz-ss").fadeTo(10, 1.0, function (next) {
@@ -496,7 +504,14 @@ $(function() {
 				$("#s3-hz-ss-d2").animate({left: '-5000px'}, 9000);
 				$("#s3-hz-ss-d1").animate({left: '-6800px'}, 8000, function() {
 					//$(".s3-hz-ss").pause();
-					s3s3s1();
+					audioBreath.stop();
+					deletePlayingAudio(audioBreath);
+					console.log("delete audioBreath");
+					//audioRunMain.fadeOut(1000, deletePlayingAudio(audioRunMain));
+					audioRunMain.stop();
+					deletePlayingAudio(audioRunMain);
+					
+					s3s4s1();
 					$("#s3-hz-ss").remove();
 				});
 				$("#s3-hz-ss-jpup").animate({left: '-8000px'}, 8000);
@@ -504,41 +519,40 @@ $(function() {
     	});
     };;
 	
+    /* 삭제 처리 */
 	/* horizontal slot */
-	function s3s3s1() {
-		//$("#s3-s3-s1").css('visibility', 'visible');
-		$("#s3-s3-s1").fadeTo(10, 1.0, function (next) {
-			$("#s3-s3-s1").animate({top: '0px', left: '0px'}, 1000, 'easeOutQuart', function() {
-				$("#s3-s3-s1-jp1").css('visibility', 'visible');
-				$("#s3-s3-s1-jp1").animate({left: '500px'}, 1500, 'linear', function() {
-					s3s3s2();
-				});
-			});
-		});
-	}
-	
-	function s3s3s2() {
-		$('#s3-s3-s2-jp2')
-	        .sprite({fps: 5, no_of_frames: 5, rewind: true})
-	        .active();
-//		$('#s3-s3-s2-jp2').active();
-		
-		$("#s3-s3-s2").fadeTo(10, 1.0, function (next) {
-			$("#s3-s3-s1").remove();	// delete pre scene
-			$("#s3-s3-s2-jp2").animate({left: '1300px'}, 2500, 'linear', function() {
-				$("#s3-s3-s2").animate({top: '-720px'}, 'slow');
-				
-				s3s4s1();
-				audioBreath.stop();
-				deletePlayingAudio(audioBreath);
-			});
-		});
-	}
+//	function s3s3s1() {
+//		$("#s3-s3-s1").fadeTo(10, 1.0, function (next) {
+//			$("#s3-s3-s1").animate({top: '0px', left: '0px'}, 1000, 'easeOutQuart', function() {
+//				$("#s3-s3-s1-jp1").css('visibility', 'visible');
+//				$("#s3-s3-s1-jp1").animate({left: '500px'}, 1500, 'linear', function() {
+//					s3s3s2();
+//				});
+//			});
+//		});
+//	}
+//	
+//	function s3s3s2() {
+//		$('#s3-s3-s2-jp2')
+//	        .sprite({fps: 5, no_of_frames: 5, rewind: true})
+//	        .active();
+//		
+//		$("#s3-s3-s2").fadeTo(10, 1.0, function (next) {
+//			$("#s3-s3-s1").remove();	// delete pre scene
+//			$("#s3-s3-s2-jp2").animate({left: '1300px'}, 2500, 'linear', function() {
+//				$("#s3-s3-s2").animate({top: '-720px'}, 'slow');
+//				
+//				s3s4s1();
+//				audioBreath.stop();
+//				deletePlayingAudio(audioBreath);
+//			});
+//		});
+//	}
 	
 	/* sand glass */
 	function s3s4s1() {
-		playingAudios.push(audioRunning3);
-		playingAudios.push(audioRunMain);
+//		playingAudios.push(audioRunning3);
+//		playingAudios.push(audioRunMain);
 		audioRunning3.fadeOut(3000, deletePlayingAudio(audioRunning3));
 		audioRunMain.fadeOut(3000, deletePlayingAudio(audioRunMain));
 		
@@ -547,8 +561,8 @@ $(function() {
 		$("#s3-s4").css('visibility', 'visible');
 		$("#s3-s4").delay(1000).animate({top: '0px'}, 'slow', function() {
 			playingAudios.push(audioRunEnd);
-			audioRunEnd.play();
-			audioRunEnd.fadeOut(8000, deletePlayingAudio(audioRunEnd));
+			//audioRunEnd.play();
+			audioRunEnd.fadeOut(3000, deletePlayingAudio(audioRunEnd));
 			
 			$("#s3-s4-ex-wide").delay(2000).animate({scale: scale}, 2000, function() {
 				audioZoomin.play();
@@ -561,10 +575,17 @@ $(function() {
 					$("#s3-s4-sand").css('visibility', 'visible');
 					$("#s3-s4-sand").fadeTo(3500, 1.0, function() {
 						$("#s3-s4-ex-zoom").css('visibility', 'hidden');
+						//playingAudios.push(audioWipe);
+						audioWipe.play();
 						$("#s3-s4-er1").fadeTo(500, 1.0, function() {
+							audioWipe.play();
 							$("#s3-s4-er2").delay( fadeDelay ).fadeTo(500, 1.0, function() {
+								audioWipe.play();
 								$("#s3-s4-er3").delay( fadeDelay ).fadeTo(500, 1.0, function() {
+									audioWipe.play();
 									$("#s3-s4-er4").delay( fadeDelay ).fadeTo(500, 1.0, function() {
+										deletePlayingAudio(audioWipe);
+										
 										audioMirrorSan.fadeIn(2000);
 										
 										$("#s3-s4-glass").fadeTo(1500, 1.0);
@@ -599,11 +620,13 @@ $(function() {
 	}
 	
 	function s3s4s3() {
-		$("#my_camera").css('visibility', 'hidden');
-		
+		//$("#my_camera").css('visibility', 'hidden');
+		$("#my_camera").fadeTo(1000, 0.0, function (next) {
+
 		$("#s3-s4-jp").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
 			s3s4s4();
 			next();
+		});
 		});
 	}
 	
@@ -643,13 +666,13 @@ $(function() {
 	}
 	
 	function s3s5s2() {
-		playingAudios.push(audioMirrorDrum1);
-		audioMirrorDrum1.play();
+		//playingAudios.push(audioBangGlass);
+		audioMirrorHit1.play();
 		
 		$("#s3-s5-b2").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {	//
 			s3s5s3(); 
 		    next();
-		    deletePlayingAudio(audioMirrorDrum1);
+		    //deletePlayingAudio(audioBangGlass);
 		});
 	}
 	
@@ -661,13 +684,13 @@ $(function() {
 	}
 	
 	function s3s5s4() {
-		playingAudios.push(audioMirrorDrum2);
-		audioMirrorDrum2.play();
+		//playingAudios.push(audioBangGlass);
+		audioMirrorHit2.play();
 		
 		$("#s3-s5-b4").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			s3s5s5(); 
 		    next();
-		    deletePlayingAudio(audioMirrorDrum2);
+		    //deletePlayingAudio(audioBangGlass);
 		});
 	}
 	
@@ -679,13 +702,13 @@ $(function() {
 	}
 	
 	function s3s5s6() {
-		playingAudios.push(audioMirrorDrum3);
-		audioMirrorDrum3.play();
+		//playingAudios.push(audioBangGlass);
+		audioMirrorHit2.play();
 		
 		$("#s3-s5-b6").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			s3s5s7(); 
 		    next();
-		    deletePlayingAudio(audioMirrorDrum3);
+		    //deletePlayingAudio(audioBangGlass);
 		});
 	}
 	
@@ -876,13 +899,13 @@ var audioRunEnd = new buzz.sound("music/S3_Running_End_Loop", {
     formats: ["mp3"],
     preload: true,
     autoload: true,
-    loop: false
+    loop: true
 });
-var audioWipeMedium = new buzz.sound("music/wipe_medium", {
+var audioWipe = new buzz.sound("music/Wipe2", {
     formats: ["mp3"],
     preload: true,
     autoload: true,
-    loop: true
+    loop: false
 });
 var audioZoomin = new buzz.sound("music/Zoom_in", {
     formats: ["mp3"],
@@ -938,13 +961,31 @@ var audioGlassBreak = new buzz.sound("music/Glass_break", {
     autoload: true,
     loop: false
 });
+var audioMirrorHit1 = new buzz.sound("music/MirrorHit1", {
+    formats: ["mp3"],
+    preload: true,
+    autoload: true,
+    loop: false
+});
+var audioMirrorHit2 = new buzz.sound("music/MirrorHit2", {
+    formats: ["mp3"],
+    preload: true,
+    autoload: true,
+    loop: false
+});
+var audioMonolog = new buzz.sound("music/Monolog", {
+    formats: ["mp3"],
+    preload: true,
+    autoload: true,
+    loop: true
+});
 
 
 window.groupSound = new buzz.group([
 	 audioRunMain
 	,audioRunMid
 	,audioRunEnd
-	,audioWipeMedium
+	,audioWipe
 	,audioZoomin
 	,audioRunning3
 	,audioMirrorSan
@@ -954,6 +995,9 @@ window.groupSound = new buzz.group([
 	,audioBangGlass
 	,audioBreath
 	,audioGlassBreak
+	,audioMirrorHit1
+	,audioMirrorHit2
+	,audioMonolog
 	]);
 
 
