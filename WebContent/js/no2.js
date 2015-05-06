@@ -411,7 +411,7 @@ $(function() {
     /* paradise horizontal run */
     var s3hzs1 = function () { 	
     	playingAudios.push(audioRunMain);
-    	audioRunMain.play();
+    	audioRunMain.play().fadeIn(1000);
     	//audioRunMain.fadeTo(musicVolume, 600);
     	
     	    	
@@ -504,12 +504,13 @@ $(function() {
 				$("#s3-hz-ss-d2").animate({left: '-5000px'}, 9000);
 				$("#s3-hz-ss-d1").animate({left: '-6800px'}, 8000, function() {
 					//$(".s3-hz-ss").pause();
-					audioBreath.stop();
-					deletePlayingAudio(audioBreath);
-					console.log("delete audioBreath");
-					//audioRunMain.fadeOut(1000, deletePlayingAudio(audioRunMain));
-					audioRunMain.stop();
-					deletePlayingAudio(audioRunMain);
+//					audioBreath.stop();
+//					deletePlayingAudio(audioBreath);
+					audioBreath.fadeOut(1000, deletePlayingAudio(audioBreath));
+					//console.log("delete audioBreath");
+					//audioRunMain.stop().fadeOut(3000, deletePlayingAudio(audioRunMain));
+					//audioRunMain.stop();
+					//deletePlayingAudio(audioRunMain);
 					
 					s3s4s1();
 					$("#s3-hz-ss").remove();
@@ -554,15 +555,15 @@ $(function() {
 //		playingAudios.push(audioRunning3);
 //		playingAudios.push(audioRunMain);
 		audioRunning3.fadeOut(3000, deletePlayingAudio(audioRunning3));
-		audioRunMain.fadeOut(3000, deletePlayingAudio(audioRunMain));
+		audioRunMain.stop().fadeOut(3000, deletePlayingAudio(audioRunMain));
 		
 		var fadeDelay = 800;	
 		var scale = 2.2
 		$("#s3-s4").css('visibility', 'visible');
 		$("#s3-s4").delay(1000).animate({top: '0px'}, 'slow', function() {
-			playingAudios.push(audioRunEnd);
-			//audioRunEnd.play();
-			audioRunEnd.fadeOut(3000, deletePlayingAudio(audioRunEnd));
+			playingAudios.push(audioRunMid);
+			//audioRunMid.play();
+			audioRunMid.fadeOut(10000, deletePlayingAudio(audioRunMid));
 			
 			$("#s3-s4-ex-wide").delay(2000).animate({scale: scale}, 2000, function() {
 				audioZoomin.play();
@@ -793,6 +794,7 @@ function deletePlayingAudio(audio) {
 	var index;
 	if ((index = playingAudios.indexOf(audio)) != -1) {
 		console.log("delete : "+index);
+		audio.stop();
 		playingAudios.splice(index, 1);
 	}
 }
