@@ -427,7 +427,7 @@ $(function() {
 			$("#s3-hz-s1-tree2").animate({left: '-1300px'}, 10500);
 			$("#s3-hz-s1-glass").animate({left: '-1400px'}, 9500);
 			
-			$("#s3-hz-s1-bg").animate({left: '-600px'}, 14500, function() {
+			$("#s3-hz-s1-bg").animate({left: '-1000px'}, 14500, function() {
 				$("#s3-hz-s1").animate({top: '-1280px'}, 3000, function() {
 					//$("#s3-hz-s1").css('visibility', 'hidden');
 				});
@@ -565,11 +565,30 @@ $(function() {
 			//audioRunMid.play();
 			audioRunMid.fadeOut(10000, deletePlayingAudio(audioRunMid));
 			
-			$("#s3-s4-ex-wide").delay(2000).animate({scale: scale}, 2000, function() {
+			$("#s3-s4-wall").css('visibility', 'visible');
+			$("#s3-s4-tree").css('visibility', 'visible');
+			$("#s3-s4-jp-back").css('visibility', 'visible');
+			
+			
+			$("#s3-s4-tree").delay(800).animate({scale: 3.5}, 2200, 'easeInQuint', function() {
+				
+			});
+			$("#s3-s4-jp-back").delay(1000).animate({scale: 3.2}, 2000, 'easeInQuint', function() {
+				
+			});
+			$("#s3-s4-wall").delay(1000).animate({scale: 2.8}, 2200, 'easeInQuint', function() {
+				
+			//});
+			
+			//$("#s3-s4-ex-wide").delay(2000).animate({scale: scale}, 2000, function() {
 				audioZoomin.play();
 				$("#s3-s4-ex-zoom").css('visibility', 'visible');
 				
 				$("#s3-s4-ex-zoom").delay(1000).animate({top: '0px'}, 1000, 'linear', function() {
+					
+					$("#s3-s4-tree").css('visibility', 'hidden');
+					$("#s3-s4-jp-back").css('visibility', 'hidden');
+					$("#s3-s4-wall").css('visibility', 'hidden');
 					
 					$("#s3-s4-ex-wide").css('visibility', 'hidden');
 					scale = 1.5
@@ -577,36 +596,7 @@ $(function() {
 					$("#s3-s4-sand").fadeTo(3500, 1.0, function() {
 						$("#s3-s4-ex-zoom").css('visibility', 'hidden');
 						//playingAudios.push(audioWipe);
-						audioWipe.play();
-						$("#s3-s4-er1").fadeTo(500, 1.0, function() {
-							audioWipe.play();
-							$("#s3-s4-er2").delay( fadeDelay ).fadeTo(500, 1.0, function() {
-								audioWipe.play();
-								$("#s3-s4-er3").delay( fadeDelay ).fadeTo(500, 1.0, function() {
-									audioWipe.play();
-									$("#s3-s4-er4").delay( fadeDelay ).fadeTo(500, 1.0, function() {
-										deletePlayingAudio(audioWipe);
-										
-										audioMirrorSan.fadeIn(2000);
-										
-										$("#s3-s4-glass").fadeTo(1500, 1.0);
-										$("#s3-s4-glass-tp").fadeTo(1500, 1.0, function() {
-//											$("#my_camera").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
-//												$("#s3-s4-jp").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
-//													$("#my_camera").fadeTo(1500, 0.5);
-//													$("#s3-s4-jp").fadeTo(1500, 0.5);
-//													//$("#s3-s4-jp").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
-//														s3s5();
-//														next();
-//													//}
-//												});
-//											});
-											s3s4s2();
-										});
-									});
-								});
-							});
-						});
+						s3s4s2();
 					});
 				});
 			});
@@ -614,24 +604,60 @@ $(function() {
 	}
 	
 	function s3s4s2() {
-		$("#my_camera").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
-			s3s4s3();
-			next();
+		var fadeDelay = 800;
+		
+		audioWipe.play();
+		
+		$("#s3-s4-er1").fadeTo(500, 1.0, function() {
+			audioWipe.play();
+			$("#s3-s4-er2").delay( fadeDelay ).fadeTo(500, 1.0, function() {
+				audioWipe.play();
+				$("#s3-s4-er3").delay( fadeDelay ).fadeTo(500, 1.0, function() {
+					audioWipe.play();
+					$("#s3-s4-er4").delay( fadeDelay ).fadeTo(500, 1.0, function() {
+						deletePlayingAudio(audioWipe);
+						
+						audioMirrorSan.fadeIn(2000);
+						
+						$("#s3-s4-glass").fadeTo(1500, 1.0);
+						$("#s3-s4-glass-tp").fadeTo(1500, 1.0, function() {
+//							$("#my_camera").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
+//								$("#s3-s4-jp").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
+//									$("#my_camera").fadeTo(1500, 0.5);
+//									$("#s3-s4-jp").fadeTo(1500, 0.5);
+//									//$("#s3-s4-jp").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
+//										s3s5();
+//										next();
+//									//}
+//								});
+//							});
+							s3s4s3();
+						});
+					});
+				});
+			});
 		});
 	}
 	
 	function s3s4s3() {
+		$("#my_camera").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
+			s3s4s4();
+			next();
+		});
+	}
+	
+	function s3s4s4() {
 		//$("#my_camera").css('visibility', 'hidden');
 		$("#my_camera").fadeTo(1000, 0.0, function (next) {
 
 		$("#s3-s4-jp").fadeTo(1500, 1.0).delay(3000, "fx").queue("fx", function (next) {
-			s3s4s4();
+			s3s4s5();
 			next();
 		});
 		});
 	}
 	
-	function s3s4s4() {
+	function s3s4s5() {
 		$("#my_camera").css('visibility', 'visible');
 		
 		$("#my_camera").fadeTo(1500, 0.5, function () {
@@ -646,7 +672,10 @@ $(function() {
 	var fadeDelay = 20;
 	var delay = 1000;
 	function s3s5() {
-		$("#s3-s4").animate({top: '-720px'}, 'slow');
+		$("#s3-s4").animate({top: '-720px'}, 'slow', function() {
+			$("#s3-s4").css('visibility', 'hidden');
+			//$("#s3-s4").remove();
+		});
 		$("#s3-s5").css('visibility', 'visible');
 		
 //		audios['audioMirrorDrum1'].trigger('pause');
@@ -669,6 +698,7 @@ $(function() {
 	function s3s5s2() {
 		//playingAudios.push(audioBangGlass);
 		audioMirrorHit1.play();
+		audioBangGlass.play();
 		
 		$("#s3-s5-b2").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {	//
 			s3s5s3(); 
@@ -687,6 +717,7 @@ $(function() {
 	function s3s5s4() {
 		//playingAudios.push(audioBangGlass);
 		audioMirrorHit2.play();
+		audioBangGlass.play();
 		
 		$("#s3-s5-b4").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			s3s5s5(); 
@@ -705,6 +736,7 @@ $(function() {
 	function s3s5s6() {
 		//playingAudios.push(audioBangGlass);
 		audioMirrorHit2.play();
+		audioBangGlass.play();
 		
 		$("#s3-s5-b6").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			s3s5s7(); 
@@ -730,6 +762,8 @@ $(function() {
 	}
 	
 	function s3s5s9() {
+		audioMirrorHit2.play();
+		audioBangGlass.play();
 		delay = 1000;
 		$("#s3-s5-b9").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
 			s3s5s10(); 
@@ -739,18 +773,22 @@ $(function() {
 	
 	/* 유리 파편 */
 	function s3s5s10() {
-		playingAudios.push(audioGlassBreak);
-		audioGlassBreak.play();
+		
 		
 		var scale = 1.6
 		delay = 10;
 		$("#s3-s5-b10").fadeTo(fadeDelay, 1.0).delay(delay, "fx").queue("fx", function (next) {
+
+			//playingAudios.push(audioGlassBreak);
+			//audioGlassBreak.fadeTo(60, 50);
+			audioGlassBreak.play();
+			
 			$("#s3-s5-b10-g0").fadeTo(fadeDelay, 1.0);
 			$("#s3-s5-b10-g1").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 1700);
 			$("#s3-s5-b10-g2").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 2400);
 			$("#s3-s5-b10-g3").fadeTo(fadeDelay, 1.0).animate({scale: scale}, 3000);
 			s3s6();
-			deletePlayingAudio(audioGlassBreak);
+			//deletePlayingAudio(audioGlassBreak);
 		    next();
 		});
 		
